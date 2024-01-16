@@ -1,0 +1,120 @@
+/* style.css */
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+/* body를 가운데 정렬하기 위해 html에 flex를 주었습니다. */
+html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+body {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(black, gray);
+  font-family: sans-serif;
+}
+.wrap {
+  /* 하얀 상자 */
+  width: 1200px;
+  height: 650px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 20px; /* 상자 둥근 정도 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  border: black;
+}
+table.table2 {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  margin: 20px 10px;
+}
+
+table.table2 tr {
+  width: 50px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+table.table2 td {
+  width: 80px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+table.table2 .writer {
+  font-weight: bold;
+  text-align: center;
+  background-color: white;
+  width: 80px;
+  height: 33px;
+  background-color: #eeeeee;
+}
+
+table.table2 .writer2 {
+  background-color: white;
+  width: 350px;
+  height: 33px;
+  padding-left: 10px;
+}
+
+table td {
+  height: 35;
+  float: center;
+}
+
+table p {
+  font-size: 25px;
+  text-align: center;
+  color: black;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  height: 30px;
+  width: 530px;
+  /* background-color: gray; */
+}
+
+table .table2 input {
+  border: 1px solid gray;
+  width: 400px;
+  height: 35px;
+  margin: 5px;
+  padding-left: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+table .table2 .content {
+  padding: 20px;
+  height: 250px;
+}
+
+.btn {
+  width: 70px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 0;
+  background: black;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
