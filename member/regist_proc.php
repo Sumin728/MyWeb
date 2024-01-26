@@ -2,10 +2,10 @@
 include "../db_conn.php";
 
 $pw = $_POST['pw'];
-$encrypted_pw = hash('sha256', $pw);
+$hashed_pw = hash('sha256', $pw);
 
 $email = $_POST['email'] . '@' . $_POST['emadress'];
-$sql = "insert into member values(null, '{$_POST['name']}', '{$_POST['decide_id']}','$encrypted_pw', '$email','{$_POST['phone']}', now())";
+$sql = "insert into member values(null, '{$_POST['name']}', '{$_POST['decide_id']}','$hashed_pw', '$email','{$_POST['phone']}', now())";
 $result = mysqli_query($db_conn, $sql);
 /* $result = $db_conn -> query($sql);*/
 // 입력이 됐으면 결과가 1

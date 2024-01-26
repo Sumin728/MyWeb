@@ -1,6 +1,8 @@
 .btn {
   border: none;
   background-color: lightgray;
+  border-radius: 5px;
+  height: 25px;
   color: black;
 }
 

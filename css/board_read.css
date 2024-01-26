@@ -69,6 +69,7 @@ table.table2 .writer {
 
 table.table2 .writer2 {
   background-color: white;
+  font-weight: bold;
   width: 350px;
   height: 33px;
   padding-left: 10px;
