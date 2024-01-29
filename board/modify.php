@@ -16,7 +16,7 @@
     include "../db_conn.php";
     $number = $_GET['idx'];
 
-    $sql = "select id, title, content, regdate, writer from board where idx = $number";
+    $sql = "select id, title, content, writer, file from board where idx = $number";
     $result = mysqli_query($db_conn, $sql);
     $row = mysqli_fetch_array($result);
     $title = $row['title'];
@@ -36,7 +36,7 @@
         exit;
     } else { ?>
         <div id="board_wrap" class="wrap">
-            <form method="post" action="modify_proc.php" onsubmit="return ch_blank()">
+            <form method="post" action="modify_proc.php" enctype="multipart/form-data" onsubmit="return ch_blank()">
                 <table style="padding-top:50px" align=center width=auto border=0 cellpadding=2>
                     <tr>
                         <td>
@@ -48,17 +48,20 @@
                             <table class="table2">
                                 <tr>
                                     <td>작성자</td>
-                                    <td><input type="hidden" name="name" value="<?= $_SESSION['name'] ?>"><?= $_SESSION['name'] ?></td>
+                                    <td><?php echo $_SESSION['name'] . " (" . $row['id'] . ")" ?></td>
                                 </tr>
                                 <tr>
                                     <td>제목</td>
-                                    <td><input type="text" name="title" maxlength="30" id="title" value="<?= $title ?>"></td>
+                                    <td><input type="text" name="title" maxlength="30" id="title" value="<?php echo $row['title'] ?>"></td>
                                 </tr>
                                 <tr>
                                     <td>내용</td>
-                                    <td><textarea name="content" id="content"><?= $content ?></textarea></td>
+                                    <td><textarea name="content" id="content"><?php echo $row['content'] ?></textarea></td>
                                 </tr>
                             </table>
+                            <div>
+                                <input type="file" style="margin-left: 60px;" name="uploadFile" value=null accept="image/*, .pdf, .txt" />
+                            </div>
                             <input type="hidden" name="idx" value="<?= $number ?>">
                             <p><input type="submit" value="수정" class="form_btn"></p>
                         </td>

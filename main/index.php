@@ -85,7 +85,7 @@
   $total = mysqli_num_rows($result);
   ?>
 
-  <p style="font-size:30px; text-align:center"><a href="index.php"><b style="color: black;">게시판</b></a></p>
+  <p style="font-size:35px; text-align:center"><a href="index.php"><b style="color: black;">게시판</b></a></p>
   <div style="text-align:right;">
     <b><?php echo $_SESSION['name'] ?></b>님, 환영합니다.
     <button class="btn" onclick="location.href='../mypage/mychange.php?user=<?= $_SESSION['id'] ?>'">내 정보</button>

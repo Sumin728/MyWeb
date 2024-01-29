@@ -108,14 +108,14 @@ table .table2 .content {
 }
 
 .btn {
-  width: 70px;
-  height: 40px;
-  margin: 5px;
+  width: 60px;
+  height: 30px;
+  margin: 3px;
   border-radius: 5px;
   border: 0;
   background: black;
   color: #fff;
-  font-weight: bold;
-  font-size: 15px;
+  /* font-weight: bold; */
+  font-size: 13px;
   cursor: pointer;
 }

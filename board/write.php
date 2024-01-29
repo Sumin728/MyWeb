@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/board.css" />
     <script src="blank.js"></script>
     <title>게시글 작성</title>
+
+
 </head>
 
 <body>
@@ -20,8 +22,8 @@
         exit;
     } else { ?>
         <div id="board_wrap" class="wrap">
-            <form method="post" action="write_proc.php" onsubmit="return ch_blank()">
-                <table style="padding-top:50px" align=center width=auto border=0 cellpadding=2>
+            <form method="post" action="write_proc.php" enctype="multipart/form-data" onsubmit="return ch_blank()">
+                <table padding-top:50px" align=center width=auto border=0 cellpadding=2>
                     <tr>
                         <td>
                             <p><b>게시글 작성</b></p>
@@ -36,13 +38,16 @@
                                 </tr>
                                 <tr>
                                     <td>제목</td>
-                                    <td><input type="text" name="title" id="title" placeholder="제목" maxlength=20></td>
+                                    <td><input type="text" name="title" id="title" placeholder="제목" maxlength=25></td>
                                 </tr>
                                 <tr>
                                     <td>내용</td>
                                     <td><textarea name="content" id="content"></textarea></td>
                                 </tr>
                             </table>
+                            <div>
+                                <input type="file" style="margin-left: 60px;" name="uploadFile" accept="image/*, .pdf, .txt" />
+                            </div>
                             <input type="hidden" name="id" value="<?= $_SESSION['id'] ?>">
                             <p><input type="submit" value="업로드" class="form_btn"></p>
                         </td>

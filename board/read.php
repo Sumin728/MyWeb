@@ -15,7 +15,7 @@
 
     $view_sql = "update board set views = views+1 where idx = '$number'";
     mysqli_query($db_conn, $view_sql);
-    $sql = "select title, content, regdate, writer, id from board where idx = $number";
+    $sql = "select title, content, writer, id, file from board where idx = $number";
     $result = mysqli_query($db_conn, $sql);
     $row = mysqli_fetch_array($result);
     ?>
@@ -36,10 +36,20 @@
                         <tr>
                             <td colspan="2" class="content"><?= nl2br($row['content']) ?></td>
                         </tr>
+                        <?php if ($row['file'] != NULL) { ?>
+                            <tr>
+                                <td style="border: none;"><a href="../upload/<?php echo $row['file']; ?>" download><?php echo $row['file']; ?></a></td>
+                            </tr>
+                        <?php } ?>
                     </table>
                     <div class="read_btn">
                         <button class="btn" onclick="location.href='../main/index.php'">목록</button>
-                        <button class="btn" onclick="location.href='modify.php?idx=<?= $number ?>'">수정</button>
+                        <?php
+                        session_start();
+                        if ($_SESSION['id'] == $row['id']) { ?>
+                            <button class="btn" onclick="location.href='modify.php?idx=<?= $number ?>'">수정</button>
+                        <?php } ?>
+
                         <button class="btn" onclick="location.href='delete.php?idx=<?= $number ?>'">삭제</button>
                     </div>
                 </td>
