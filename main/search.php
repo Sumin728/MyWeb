@@ -13,6 +13,8 @@ if (!$name) {
 
 $cate = $_GET['cate'];
 $search = $_GET['search'];
+$date1 = $_GET['date1'];
+$date2 = $_GET['date2'];
 
 /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
 $sql = "select * from board where $cate like '%$search%'";
@@ -58,10 +60,14 @@ if ($e_pageNum > $total_page) {
 $start = ($page - 1) * $list_num;
 
 /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
-$sql = "select * from board where $cate like '%$search%' order by regdate DESC limit $start, $list_num;";
-/* paging : 쿼리 전송 */
+if ($date1 && $date2) {
+    $sql = "select * from board where $cate like '%$search%' and regdate between '$date1' and '$date2' order by regdate DESC limit $start, $list_num;";
+} else {
+    $sql = "select * from board where $cate like '%$search%' order by regdate DESC limit $start, $list_num;";
+}
+
 $result = mysqli_query($db_conn, $sql);
-// $total = mysqli_num_rows($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -109,6 +115,9 @@ $result = mysqli_query($db_conn, $sql);
                 </select>
                 <input class=textform type=text name=search id="search_box" autocomplete="off" placeholder="제목을 입력하세요." required>
                 <input class=submit type=submit value=검색>
+                <input class=date type=date name=date1>
+                ~
+                <input class=date type=date name=date2>
             </form>
         </div>
 

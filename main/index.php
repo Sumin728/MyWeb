@@ -104,6 +104,9 @@
         </select>
         <input class=textform type=text name=search id="search_box" autocomplete="off" placeholder="제목을 입력하세요." required>
         <input class=submit type=submit value=검색>
+        <input class=date type=date name=date1>
+        ~
+        <input class=date type=date name=date2>
       </form>
     </div>
 
