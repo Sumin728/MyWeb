@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/board_read.css" />
+    <link rel="stylesheet" href="../css/read2.css" />
     <title>게시글 읽기</title>
     <style>
 
@@ -28,7 +28,7 @@
     $result = mysqli_query($db_conn, $sql);
     $row = mysqli_fetch_array($result);
     ?>
-    <p style="font-size:35px;"><a href="../main/index.php"><b style="color: black;">게시판</b></a></p>
+    <p style="font-size:35px;"><a href="../main/index.php"><b>게시판</b></a></p>
     <div style="text-align:right;">
         <b><?php echo $_SESSION['name'] ?></b>님, 환영합니다.
         <button class="btn" onclick="location.href='../mypage/mychange.php?user=<?= $_SESSION['id'] ?>'">내 정보</button>
@@ -36,8 +36,7 @@
     </div>
     <hr>
     <br>
-    <!--- 컨텐츠 -->
-    <div id="read" style="margin-top:30px;">
+    <div id="read" style="margin-top:50px;">
         <div id="title">
             <p style="font-size:23px;"><b><?php echo $row['title']; ?></b></p>
         </div>
@@ -46,7 +45,7 @@
         </div>
         <hr class="line">
         <br>
-
+        <!--- 컨텐츠 -->
         <div id="content">
             <p style="font-size: 18px;"><?php echo nl2br($row['content']) ?></p>
         </div>

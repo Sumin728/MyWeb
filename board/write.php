@@ -43,7 +43,6 @@
                                 <tr>
                                     <td>내용</td>
                                     <td><textarea name="content" id="content"></textarea></td>
-                                </tr>
                             </table>
                             <div>
                                 <input type="file" style="margin-left: 60px;" name="uploadFile" accept="image/*, .pdf, .txt" />

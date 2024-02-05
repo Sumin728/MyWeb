@@ -24,7 +24,7 @@
     $num = mysqli_num_rows($result);
     ?>
 
-    <p style="font-size:30px; text-align:center"><a href="index.php"><b style="color: black;">게시판</b></a></p>
+    <p style="font-size:33px; text-align:center"><a href="index.php"><b style="color: black;">게시판</b></a></p>
     <div style="text-align:center;">
         <b><?php echo $_SESSION['name'] ?></b>님, 환영합니다.
         <button class="btn" onclick="location.href='../mypage/mychange.php?user=<?= $_SESSION['id'] ?>'">내 정보</button>
@@ -52,7 +52,7 @@
                     <tr>
                         <td width="50" align="center"><?php echo $rows['writer']  ?></td>
                         <td width="400" align="center">
-                            <a href="../board/read.php?idx=<?php echo $rows['idx'] ?>">
+                            <a href="../board/read2.php?idx=<?php echo $rows['idx'] ?>">
                                 <?php echo $rows['title'] ?></a>
                         </td>
                         <td width="50" align="center"><?php echo $rows['views'] ?></td>

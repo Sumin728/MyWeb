@@ -12,6 +12,34 @@ include "db_conn.php";
   <link rel="stylesheet" href="../css/style.css" />
   <script type="text/javascript" src="./regist.js"></script>
   <title>회원가입</title>
+  <style>
+    #regist_wrap #regist_form input#check_button {
+      position: relative;
+      top: -2px;
+      width: 100px;
+      height: 28px;
+      font-size: 12px;
+      margin-left: 0;
+      padding-left: 0;
+      box-sizing: content-box;
+      background: white;
+      border-color: black;
+      cursor: pointer;
+    }
+
+    .emadress {
+      width: 165px;
+      height: 40px;
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .info {
+      color: red;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
@@ -31,23 +59,23 @@ include "db_conn.php";
           <p><input type="text" name="id" id="userid" placeholder="ID">
             <input type="hidden" name="decide_id" id="decide_id">
           </p>
-          <p><span id="decide" style='color:red; font-size:13px;'>* ID 중복 여부를 확인해주세요.&nbsp;</span>
+          <p><span class="info" id="decide">* ID 중복 여부를 확인해주세요.&nbsp;</span>
             <input type="button" id="check_button" value="ID 중복체크" onclick="checkId();">
           </p>
           <p><input type="password" name="pw" id="userpw" placeholder="Password"></p>
           <p><input type="password" name="pw_ch" id="userpw_ch" placeholder="Password Check"></p>
           <p><input style="width:210px;" type="text" name="email" id="useremail" placeholder="Email">@
-            <select style="width:165px; height:40px; border: 1px solid #d9d9d9; border-radius: 10px;font-size: 14px;" name="emadress">
+            <select class="emadress" name="emadress">
               <option value="naver.com">naver.com</option>
               <option value="gmail.com">gmail.com</option>
               <option value="daum.net">daum.net</option>
             </select>
           </p>
           <p><input type="text" name="phone" id="userphone" placeholder="Phone Number"></p>
-          <p><span style='color:red; font-size:13px; float:left;'>&nbsp;&nbsp;&nbsp;"-" 없이 11자리 숫자만 입력</span>
+          <p><span class="info" style="float:left; margin-bottom:5px;">&nbsp;&nbsp;&nbsp;"-" 없이 11자리 숫자만 입력</span>
             <input type="submit" value="회원가입" id="join_button" class="form_btn" disabled=true>
           </p>
-          <p><a href="login.php" style="color: gray; font-size:13px;">로그인</a></p>
+          <p class="pre_btn" style="font-size:13px;"><a href="login.php">로그인</a></p>
         </form>
       </div>
     </div>
