@@ -11,7 +11,7 @@ $result = mysqli_query($db_conn, $sql);
 
 if ($result) {
     echo "<script>alert('댓글이 작성되었습니다.');
-    location.href='read2.php?idx=$num';</script>";
+    location.href='read.php?idx=$num';</script>";
 } else {
     echo "<script>alert('댓글 작성에 실패했습니다.');
     history.back();</script>";

@@ -96,7 +96,7 @@ $result = mysqli_query($db_conn, $sql);
 </head>
 
 <body>
-    <p style="font-size:30px; text-align:center"><a href="index.php"><b style="color: black;">게시판</b></a></p>
+    <p style="font-size:35px; text-align:center"><a href="index.php"><b style="color: black;">게시판</b></a></p>
     <div style="text-align:right;">
         <b><?php echo $_SESSION['name'] ?></b>님, 환영합니다.
         <button class="btn" onclick="location.href='../mypage/mychange.php?user=<?= $_SESSION['id'] ?>'">내 정보</button>
@@ -108,7 +108,7 @@ $result = mysqli_query($db_conn, $sql);
     <div class="column">
         <div class="search">
             <form method="get" action="search.php">
-                <select name="cate" id="search_opt" onchange="info()">
+                <select style="width:65px;" name="cate" id="search_opt" onchange="info()">
                     <option value=title>제목</option>
                     <option value=content>내용</option>
                     <option value=writer>작성자</option>

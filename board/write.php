@@ -45,7 +45,7 @@
                                     <td><textarea name="content" id="content"></textarea></td>
                             </table>
                             <div>
-                                <input type="file" style="margin-left: 60px;" name="uploadFile" accept="image/*, .pdf, .txt" />
+                                <input type="file" style="margin-left: 60px;" name="uploadFile" accept="image/*, .txt" />
                             </div>
                             <input type="hidden" name="id" value="<?= $_SESSION['id'] ?>">
                             <p><input type="submit" value="업로드" class="form_btn"></p>

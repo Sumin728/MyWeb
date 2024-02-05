@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../css/board_read.css" />
     <title>게시글 읽기</title>
     <style>
-
-
+        .line {
+            border: solid 1px black;
+        }
     </style>
 </head>
 
@@ -39,7 +40,7 @@
     <!--- 컨텐츠 -->
     <div id="read" style="margin-top:30px;">
         <div id="title">
-            <p style="font-size:23px;"><b><?php echo $row['title']; ?></b></p>
+            <p style="font-size:27px;"><b><?php echo $row['title']; ?></b></p>
         </div>
         <div id="info">
             <?php echo $row['writer'] . "(" . $row['id'] . ") " . ", " . $row['regdate'] . " , 조회수 : " . $row['views']; ?>
