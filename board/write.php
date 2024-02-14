@@ -17,7 +17,7 @@
     if (!isset($_SESSION['name'])) {
         echo "<script>
         alert(\"로그인이 필요합니다.\");
-        location.href = \"../main/login.php\";
+        location.href = \"../member/login.php\";
         </script>";
         exit;
     } else { ?>
@@ -45,7 +45,7 @@
                                     <td><textarea name="content" id="content"></textarea></td>
                             </table>
                             <div>
-                                <input type="file" style="margin-left: 60px;" name="uploadFile" accept="image/*, .txt" />
+                                <input type="file" style="margin-left: 60px;" name="uploadFile" accept="image/*, .pdf, .txt" />
                             </div>
                             <input type="hidden" name="id" value="<?= $_SESSION['id'] ?>">
                             <p><input type="submit" value="업로드" class="form_btn"></p>

@@ -50,6 +50,7 @@ include "db_conn.php";
        alert(\"이미 로그인 하셨습니다.\");
        location.href = \"../main/index.php\";
        </script>";
+    exit;
   } else { ?>
     <div id="regist_wrap" class="wrap">
       <div>

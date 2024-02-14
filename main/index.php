@@ -128,7 +128,7 @@
               <td width="50" align="center"><?php echo $rows['writer']  ?></td>
               <td width="400" align="center">
                 <a href="../board/read.php?idx=<?php echo $rows['idx'] ?>">
-                  <?php echo $rows['title'] ?></a>
+                  <?php echo htmlentities($rows['title']) ?></a>
               </td>
               <td width="50" align="center"><?php echo $rows['views'] ?></td>
               <td width="200" align="center"><?php echo $rows['regdate'] ?></td>

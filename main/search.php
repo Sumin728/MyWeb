@@ -17,7 +17,12 @@ $date1 = $_GET['date1'];
 $date2 = $_GET['date2'];
 
 /* paging : 쿼리 작성 - limit 몇번부터, 몇개 */
-$sql = "select * from board where $cate like '%$search%'";
+if ($date1 && $date2) {
+    $sql = "select * from board where $cate like '%$search%' and regdate between '$date1' and '$date2'";
+} else {
+    $sql = "select * from board where $cate like '%$search%'";
+}
+
 /* paging : 쿼리 전송 */
 $result = mysqli_query($db_conn, $sql);
 $num = mysqli_num_rows($result);
@@ -157,32 +162,32 @@ $result = mysqli_query($db_conn, $sql);
 
         <div class="paging">
             <p class="pager" style="display:block;">
-                <a href="search.php?page=1&cate=<?php echo $cate ?>&search=<?php echo $search ?>">&lt&lt</a>
+                <a href="search.php?page=1&cate=<?php echo $cate ?>&search=<?php echo $search ?>&date1=<?php echo $date1 ?>&date2=<?php echo $date2 ?>">&lt&lt</a>
                 <?php
                 /* paging : 이전 페이지 */
                 if ($page <= 1) {
                 ?>
-                    <a href="search.php?page=1&cate=<?php echo $cate ?>&search=<?php echo $search ?>">이전</a>
+                    <a href="search.php?page=1&cate=<?php echo $cate ?>&search=<?php echo $search ?>&date1=<?php echo $date1 ?>&date2=<?php echo $date2 ?>">이전</a>
                 <?php } else { ?>
-                    <a href="search.php?page=<?php echo ($page - 1); ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>">이전</a>
+                    <a href="search.php?page=<?php echo ($page - 1); ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>&date1=<?php echo $date1 ?>&date2=<?php echo $date2 ?>">이전</a>
                 <?php }; ?>
 
                 <?php
                 /* pager : 페이지 번호 출력 */
                 for ($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++) {
                 ?>
-                    <a href="search.php?page=<?php echo $print_page; ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>"><?php echo $print_page; ?></a>
+                    <a href="search.php?page=<?php echo $print_page; ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>&date1=<?php echo $date1 ?>&date2=<?php echo $date2 ?>"><?php echo $print_page; ?></a>
                 <?php }; ?>
 
                 <?php
                 /* paging : 다음 페이지 */
                 if ($page >= $total_page) {
                 ?>
-                    <a href="search.php?page=<?php echo $total_page; ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>">다음</a>
+                    <a href="search.php?page=<?php echo $total_page; ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>&date1=<?php echo $date1 ?>&date2=<?php echo $date2 ?>">다음</a>
                 <?php } else { ?>
-                    <a href="search.php?page=<?php echo ($page + 1); ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>">다음</a>
+                    <a href="search.php?page=<?php echo ($page + 1); ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>&date1=<?php echo $date1 ?>&date2=<?php echo $date2 ?>">다음</a>
                 <?php }; ?>
-                <a href="search.php?page=<?php echo $total_page; ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>">&gt&gt</a>
+                <a href="search.php?page=<?php echo $total_page; ?>&cate=<?php echo $cate ?>&search=<?php echo $search ?>&date1=<?php echo $date1 ?>&date2=<?php echo $date2 ?>">&gt&gt</a>
             </p>
         </div>
     </div>

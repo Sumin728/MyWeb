@@ -11,7 +11,7 @@ $pw = $_POST['pw'];
 $hashed_pw = hash('sha256', $pw);
 
 //아이디 존재 여부 검사
-$sql = "select * from member where userid='$id'";
+$sql = "select username, userid, userpw from member where userid='$id'";
 $result = mysqli_query($db_conn, $sql);
 $row = mysqli_fetch_array($result);
 

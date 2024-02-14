@@ -40,7 +40,7 @@
     <!--- 컨텐츠 -->
     <div id="read" style="margin-top:30px;">
         <div id="title">
-            <p style="font-size:27px;"><b><?php echo $row['title']; ?></b></p>
+            <p style="font-size:27px;"><b><?php echo htmlentities($row['title']); ?></b></p>
         </div>
         <div id="info">
             <?php echo $row['writer'] . "(" . $row['id'] . ") " . ", " . $row['regdate'] . " , 조회수 : " . $row['views']; ?>
@@ -49,7 +49,7 @@
         <br>
 
         <div id="content">
-            <p style="font-size: 18px;"><?php echo nl2br($row['content']) ?></p>
+            <p style="font-size: 18px;"><?php echo htmlentities(nl2br($row['content'])); ?></p>
         </div>
         <?php if ($row['file'] != NULL) { ?>
             <div id="file">
@@ -81,7 +81,7 @@
         ?>
             <div class="dap_lo" style="border-radius:10px; margin:auto; text-align:left; padding-left:10px; border: solid 1px gray; margin-bottom: 10px; padding-bottom:10px; width:700px;">
                 <div style="margin-bottom:5px; margin-top:5px;"><b><?php echo $rows['name']; ?></b></div>
-                <div class="dap_to comt_edit" style="font-size:18px;"><?php echo nl2br("$rows[content]"); ?></div>
+                <div class="dap_to comt_edit" style="font-size:18px;"><?php echo htmlentities(nl2br("$rows[content]")); ?></div>
                 <div class="rep_me dap_to" style="padding-bottom: 3px; font-size:13px;"><?php echo $rows['regdate']; ?></div>
                 <?php if ($_SESSION['id'] == $rows['id']) { ?>
                     <a style="color:gray" href="delete_reply.php?con=<?php echo $number ?>&idx=<?php echo $rows['idx'] ?>">삭제</a>

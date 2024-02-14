@@ -42,11 +42,16 @@ include "../db_conn.php";
     $result = mysqli_query($db_conn, $sql);
     $row = mysqli_fetch_array($result);
 
-    if ($id != $_SESSION['id']) {
+    $name = isset($_SESSION['name']) ? $_SESSION['name'] : "";
+    if (!$name) {
+        header("location:../member/login.php");
+        exit;
+    } elseif ($id != $_SESSION['id']) {
         echo "<script>
        alert(\"권한이 없습니다.\");
        location.href = \"../main/index.php\";
        </script>";
+        exit;
     } else { ?>
         <div id="regist_wrap" class="wrap">
             <div>

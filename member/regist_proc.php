@@ -1,6 +1,13 @@
 <?php
 include "../db_conn.php";
-
+session_start();
+if (isset($_SESSION['name'])) {
+    echo "<script>
+       alert(\"이미 로그인 하셨습니다.\");
+       location.href = \"../main/index.php\";
+       </script>";
+    exit;
+}
 $pw = $_POST['pw'];
 $hashed_pw = hash('sha256', $pw);
 
